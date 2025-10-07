@@ -322,8 +322,6 @@ body {
 }
 
 .card-front h3 {
-    background: rgba(0, 0, 0, 0.6);
-    /* semi-transparent background behind text */
     padding: 8px 12px;
     border-radius: 6px;
     display: inline-block;
