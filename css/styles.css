@@ -54,7 +54,8 @@ body {
 }
 
 .section {
-    padding: 80px 0;
+    padding: 80px 40px;
+    /* top/bottom 80px - left/right 40px */
 }
 
 .section-title {
@@ -243,22 +244,49 @@ body {
     gap: 15px;
 }
 
+/* ========================= */
+/* ===== SERVICES == */
+/* ========================= */
+
 /* --- Services & Flip Cards --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* Each card takes equal width, responsive */
+    grid-template-columns: repeat(3, 360px);
     gap: 30px;
-    /* Space between cards */
+    justify-content: center;
+    padding: 10px;
 }
 
 .service-card {
-    height: 200px;
-    /* Fixed height for all cards */
+    height: 350px;
     perspective: 1000px;
-    /* Enables 3D perspective for flip */
     cursor: pointer;
-    /* Pointer cursor on hover */
+}
+
+/* === Service Card Background Photos === */
+.service-card.security .card-front {
+    background: url("/assets/images/Security\ Systems.png") no-repeat center/cover;
+    background-color: #111;
+}
+
+.service-card.networking .card-front {
+    background: url("/assets/images/Networking\ &\ Cabling.png") no-repeat center/cover;
+    background-color: #111;
+}
+
+.service-card.smarthome .card-front {
+    background: url("/assets/images/Smart\ Home\ &\ Automation.png") no-repeat center/cover;
+    background-color: #111;
+}
+
+.service-card.itinfra .card-front {
+    background: url("/assets/images/IT\ Infrastructure.png") no-repeat center/cover;
+    background-color: #111;
+}
+
+.service-card.iptelephony .card-front {
+    background: url("/assets/images/IP\ Telephony\ &\ Communication.png") no-repeat center/cover;
+    background-color: #111;
 }
 
 .card-inner {
@@ -266,16 +294,13 @@ body {
     width: 100%;
     height: 100%;
     transition: transform 0.6s;
-    /* Smooth flip animation */
     transform-style: preserve-3d;
-    /* Preserve 3D for front/back */
 }
 
 .service-card h3 {
     font-size: 20px;
 }
 
-/* Flip state: rotate the inner wrapper */
 .service-card.flip .card-inner {
     transform: rotateY(180deg);
 }
@@ -286,7 +311,6 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    /* Hide the side not facing the user */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -298,15 +322,12 @@ body {
     text-align: center;
 }
 
-/* Front side styling */
 .card-front {
     background: #111;
 }
 
-/* Back side styling */
 .card-back {
     transform: rotateY(180deg);
-    /* Flipped 180 degrees */
     background: var(--dark);
 }
 
@@ -314,14 +335,12 @@ body {
 .why-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* نفس مبدأ الـ services */
     gap: 30px;
     text-align: center;
 }
 
 .why-item {
     background: var(--dark);
-    /* تعطيه خلفية غامقة */
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
@@ -343,7 +362,6 @@ body {
     color: var(--light);
     margin-bottom: 10px;
 }
-
 
 /* --- Projects Slider --- */
 .slider-container {
@@ -508,6 +526,7 @@ body {
 @media (max-width: 1180px) {
     .section {
         padding: 72px 0;
+        /* still consistent, just slightly smaller */
     }
 
     .section-title {
@@ -523,10 +542,6 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 26px;
     }
-
-    :root {
-        --svc-card-h: clamp(110px, 13vw, 140px);
-    }
 }
 
 @media (max-width: 992px) {
@@ -538,10 +553,6 @@ body {
     .services-grid {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 24px;
-    }
-
-    :root {
-        --svc-card-h: clamp(100px, 14vw, 130px);
     }
 }
 
@@ -595,10 +606,6 @@ body {
 
     .services-grid {
         grid-template-columns: 1fr;
-    }
-
-    :root {
-        --svc-card-h: clamp(90px, 28vw, 120px);
     }
 
     .slide-caption {
