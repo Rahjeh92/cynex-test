@@ -265,27 +265,27 @@ body {
 
 /* === Service Card Background Photos === */
 .service-card.security .card-front {
-    background: url("../images/Security-Systems.png") no-repeat center/cover;
+    background: url("../assets/images/Security-Systems.png") no-repeat center/cover;
     background-color: #111;
 }
 
 .service-card.networking .card-front {
-    background: url("../images/Networking.png") no-repeat center/cover;
+    background: url("../assets/images/Networking.png") no-repeat center/cover;
     background-color: #111;
 }
 
 .service-card.smarthome .card-front {
-    background: url("../images/Smart-Home.png") no-repeat center/cover;
+    background: url("../assets/images/Smart-Home.png") no-repeat center/cover;
     background-color: #111;
 }
 
 .service-card.itinfra .card-front {
-    background: url("../images/IT-Infrastructure.png") no-repeat center/cover;
+    background: url("../assets/images/IT-Infrastructure.png") no-repeat center/cover;
     background-color: #111;
 }
 
 .service-card.iptelephony .card-front {
-    background: url("../images/IP-Telephony.png") no-repeat center/cover;
+    background: url("../assets/images/IP-Telephony.png") no-repeat center/cover;
     background-color: #111;
 }
 
