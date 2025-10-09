@@ -177,42 +177,90 @@ body {
 /* ========================= */
 .home-logo {
     height: 40%;
+    /* Logo height relative to container */
     width: 40%;
+    /* Logo width relative to container */
 }
 
 #hero {
     min-height: 100vh;
+    /* Full viewport height */
     display: flex;
+    /* Flexbox for centering */
     align-items: center;
+    /* Center content vertically */
     justify-content: center;
+    /* Center content horizontally */
     text-align: center;
+    /* Align text center */
     position: relative;
+    /* Needed for absolute children */
     overflow: hidden;
+    /* Prevent overflow (video/glow) */
 }
 
+/* Video background */
+.hero-video {
+    position: absolute;
+    /* Position video behind content */
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    /* Ensure video covers width */
+    min-height: 100%;
+    /* Ensure video covers height */
+    transform: translate(-50%, -50%);
+    /* Center video */
+    object-fit: cover;
+    /* Maintain aspect ratio, cover area */
+    z-index: -2;
+    /* Push video behind everything */
+    filter: brightness(50%);
+    /* Reduce brightness (0% = black, 100% = normal) */
+}
+
+/* Glow overlay effect */
 .hero-glow {
     position: absolute;
+    /* Overlay on top of video */
     inset: 0;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(19, 130, 186, .15), transparent 40%);
+    /* Fill entire hero section */
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(19, 130, 186, .15),
+            transparent 40%);
     transition: background .2s linear;
+    /* Smooth glow effect */
+    z-index: -1;
+    /* Between video and content */
 }
 
+/* Hero text container */
 .hero-content {
     position: relative;
+    /* Keep content above video & glow */
     z-index: 1;
 }
 
+/* Headline text */
 .hero-headline {
     font-size: clamp(2.5rem, 5vw, 4rem);
+    /* Responsive font size */
     color: var(--light);
+    /* Light color */
     margin-bottom: 20px;
+    /* Space below headline */
 }
 
+/* Subheadline text */
 .hero-subheadline {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
+    /* Responsive font size */
     color: var(--text-dark);
+    /* Darker text color */
     max-width: 600px;
+    /* Limit line length */
     margin: 0 auto 30px;
+    /* Center and add spacing */
 }
 
 /* 3d btn */
