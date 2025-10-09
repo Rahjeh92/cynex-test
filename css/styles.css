@@ -10,11 +10,9 @@
     --light: #FFFFFF;
     --text-light: #E0E0E0;
     --text-dark: #B0B0B0;
-
     --header-height: 70px;
     --border-radius: 8px;
     --transition-speed: 0.3s;
-
     /* Projects slider aspect ratio (desktop/tablet) */
     --project-aspect: 16/9;
 }
@@ -108,7 +106,7 @@ body {
 
 .logo img {
     display: block;
-    height: 80px;
+    height: 60px;
     width: auto;
 }
 
@@ -177,6 +175,11 @@ body {
 /* ========================= */
 /* =========== HERO ======== */
 /* ========================= */
+.home-logo {
+    height: 40%;
+    width: 40%;
+}
+
 #hero {
     min-height: 100vh;
     display: flex;
@@ -251,7 +254,7 @@ body {
 /* --- Services & Flip Cards --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 360px);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     justify-content: center;
     padding: 5px;
@@ -263,49 +266,96 @@ body {
     cursor: pointer;
 }
 
-/* === Service Card Background Photos === */
-.service-card.security .card-front {
-    background: url("../assets/images/Security-Systems.png") no-repeat center/cover;
-    background-color: #111;
-}
-
-.service-card.networking .card-front {
-    background: url("../assets/images/Networking.png") no-repeat center/cover;
-    background-color: #111;
-}
-
-.service-card.smarthome .card-front {
-    background: url("../assets/images/Smart-Home.png") no-repeat center/cover;
-    background-color: #111;
-}
-
-.service-card.itinfra .card-front {
-    background: url("../assets/images/IT-Infrastructure.png") no-repeat center/cover;
-    background-color: #111;
-}
-
-.service-card.iptelephony .card-front {
-    background: url("../assets/images/IP-Telephony.png") no-repeat center/cover;
-    background-color: #111;
-}
-
 .card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+
 }
 
 .service-card h3 {
     font-size: 20px;
+    font-weight: 700;
 }
 
 .service-card.flip .card-inner {
     transform: rotateY(180deg);
 }
 
-.card-front,
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
+    border-radius: 12px;
+    background: #111;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--stroke);
+    transition: all 0.3s ease;
+
+}
+
+.service-card:first-child img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+}
+
+.card-front img {
+    width: 80px;
+    /* Balanced size */
+    height: 80px;
+    margin-bottom: 25px;
+}
+
+
+
+.glow-text-strong {
+    color: var(--light);
+    text-shadow:
+        0 0 10px var(--light),
+        0 0 20px var(--light),
+        0 0 30px var(--light);
+}
+
+.glow-text {
+    color: var(--light);
+    /* Yellow text */
+    text-shadow: 0 0 15px var(--light);
+}
+
+@keyframes glowPulse {
+    0% {
+        text-shadow: 0 0 5px var(--light), 0 0 10px var(--light);
+    }
+
+    50% {
+        text-shadow: 0 0 20px var(--light), 0 0 40px var(--light);
+    }
+
+    100% {
+        text-shadow: 0 0 5px var(--light), 0 0 10px var(--light);
+    }
+}
+
+.glow-text-animated {
+    color: var(--light);
+    animation: glowPulse 2s infinite alternate;
+}
+
 .card-back {
     position: absolute;
     width: 100%;
@@ -316,28 +366,38 @@ body {
     justify-content: center;
     border-radius: 12px;
     background: #111;
-    color: #00aaff;
+    color: #fff;
+    /* make text white by default */
     padding: 15px;
     text-align: center;
+    border: 1px solid var(--stroke);
+    transition: all 0.3s ease;
 }
 
+/* Title font style */
 .card-front h3 {
     padding: 8px 12px;
     font-family: 'Audiowide', sans-serif;
-    /* special font for titles */
     font-size: 1.2rem;
-    /* glowing text */
 }
 
+/* Description font style */
 .card-back p {
     font-family: 'Orbitron', sans-serif;
-    /* Cool futuristic font */
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     letter-spacing: 1px;
     line-height: 1.6;
 }
 
+.card-back li {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    text-align: left;
+}
 
 .card-front {
     background: #111;
@@ -346,6 +406,17 @@ body {
 .card-back {
     transform: rotateY(180deg);
     background: var(--dark);
+}
+
+/* Hover effect:*/
+.service-card:hover .card-front {
+    border-color: var(--brand);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.service-card:hover .card-back {
+    border-color: var(--brand);
+    box-shadow: 0 0 15px var(--primary);
 }
 
 /* --- Why Choose --- */
