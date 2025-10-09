@@ -321,7 +321,11 @@ body {
     margin-bottom: 25px;
 }
 
-
+.service-card:nth-child(3) img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+}
 
 .glow-text-strong {
     color: var(--light);
