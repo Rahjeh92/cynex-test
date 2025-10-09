@@ -581,7 +581,7 @@ body {
     }
 
     50% {
-        text-shadow: 0 0 20px var(--light), 0 0 40px var(--light);
+        text-shadow: 0 0 20px var(--light), 0 0 20px var(--light);
     }
 
     100% {
