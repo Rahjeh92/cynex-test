@@ -180,9 +180,9 @@ body {
     /* required for z-index to work */
     z-index: 2;
     /* makes logo visible above video and overlay */
-    height: 40%;
+    height: 50%;
     /* Logo height relative to container */
-    width: 40%;
+    width: 50%;
     /* Logo width relative to container */
 }
 
