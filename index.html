@@ -111,10 +111,10 @@
                             <!-- Back side of the card -->
                             <div class="card-back">
                                 <ul class="desc">
-                                    <li>CCTV</li>
-                                    <li>Access control</li>
-                                    <li>Intrusion alarms</li>
-                                    <li>24/7 monitoring</li>
+                                    <li>CCTV cameras & Video surveillance</li>
+                                    <li>Access control systems</li>
+                                    <li>Intrusion alarms & Monitoring </li>
+                                    <li>Ongoing maintenance & Support</li>
                                 </ul>
                             </div>
                         </div>
@@ -125,13 +125,17 @@
                         <div class="card-inner">
                             <!-- Front side of the card -->
                             <div class="card-front glow-text-animated">
-                                <img src="" alt="network">
+                                <img src="assets/images/networking.png" alt="network">
                                 <h3 class="svc-title">Networking &amp; Cabling</h3>
                             </div>
                             <!-- Back side of the card -->
                             <div class="card-back">
-                                <p class="desc">Structured cabling, LAN/WAN, Wi-Fi optimization, and data center wiring
-                                    for peak performance.</p>
+                                <ul class="desc">
+                                    <li>Structured cabling (voice & data)</li>
+                                    <li>LAN/WAN design & implementation</li>
+                                    <li>Wireless solutions & optimization</li>
+                                    <li>Data center cabling and support</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -141,13 +145,17 @@
                         <div class="card-inner">
                             <!-- Front side of the card -->
                             <div class="card-front glow-text-animated">
-                                <img src="assets/images/networking.png" alt="network">
+                                <img src="assets/images/smart-home.png" alt="smart-home">
                                 <h3 class="svc-title">Smart Home &amp; Automation</h3>
                             </div>
                             <!-- Back side of the card -->
                             <div class="card-back">
-                                <p class="desc">Lighting, climate control, and voice/app integration for a truly
-                                    connected experience.</p>
+                                <ul class="desc">
+                                    <li>Intelligent lighting & climate control</li>
+                                    <li>Voice and app-based system integration</li>
+                                    <li>Remote monitoring & control solutions</li>
+                                    <li>Energy efficiency & comfort solutions</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -157,12 +165,17 @@
                         <div class="card-inner">
                             <!-- Front side of the card -->
                             <div class="card-front glow-text-animated">
+                                <img src="assets/images/it-infrastructure.png" alt="it-infrastructure">
                                 <h3 class="svc-title">IT Infrastructure</h3>
                             </div>
                             <!-- Back side of the card -->
                             <div class="card-back">
-                                <p class="desc">Expert deployment of routers, switches, firewalls, and complete SME
-                                    solutions.</p>
+                                <ul class="desc">
+                                    <li>Routers, switches, and firewalls</li>
+                                    <li>IT system integration</li>
+                                    <li>System upgrades & optimizations</li>
+                                    <li>Technical support contracts</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -172,12 +185,16 @@
                         <div class="card-inner">
                             <!-- Front side of the card -->
                             <div class="card-front glow-text-animated">
+                                <img src="assets/images/ip-telephony.png" alt="ip-telephony">
                                 <h3 class="svc-title">IP Telephony &amp; Communication</h3>
                             </div>
                             <!-- Back side of the card -->
                             <div class="card-back">
-                                <p class="desc">Advanced IP telephony, VoIP, and unified communications to connect your
-                                    teams.</p>
+                                <ul class="desc">
+                                    <li>IP Telephony systems and call manager solutions</li>
+                                    <li>VoIP setup and configuration</li>
+                                    <li>Unified communication solutions for seamless business operations</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -311,7 +328,9 @@
                         <p>🌐 www.cynex.pro</p>
                         <p>📧 info@cynex.pro</p>
                     </div>
-                    <form class="contact-form">
+
+                    <!-- formspree.io -->
+                    <!-- <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
                         <h3>Send us a message</h3>
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -325,13 +344,35 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                        <button type="button" class="button">
+                        <button type="submit" class="button">
+                            <div class="button-top">Submit</div>
+                            <div class="button-bottom"></div>
+                            <div class="button-base"></div>
+                        </button>
+                    </form> -->
+
+                    <!-- mailto -->
+                    <form class="contact-form" action="mailto:info@cynex.com" method="post" enctype="text/plain">
+                        <h3>Send us a message</h3>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="button">
                             <div class="button-top">Submit</div>
                             <div class="button-bottom"></div>
                             <div class="button-base"></div>
                         </button>
                     </form>
+
                 </div>
             </div>
             <!-- <div class="social-card">

@@ -506,7 +506,6 @@ form button {
     background: #111;
     color: #fff;
     /* make text white by default */
-    padding: 15px;
     text-align: center;
     border: 1px solid var(--stroke);
     transition: all 0.3s ease;
@@ -519,21 +518,16 @@ form button {
     font-size: 1.2rem;
 }
 
-/* Description font style */
-.card-back p {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    line-height: 1.6;
+.card-back ul {
+    margin: 25px;
 }
 
 .card-back li {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.1rem;
+    font-family: sans-serif;
+    font-size: 1rem;
     font-weight: 500;
     letter-spacing: 1px;
-    line-height: 1.6;
+    line-height: 2.5;
     text-align: left;
 }
 
@@ -704,6 +698,8 @@ form button {
     justify-items: center;
     box-shadow: 0 0 15px var(--primary);
     border-radius: 12px;
+    padding: 20px;
+    text-align: center;
 }
 
 .contact-info p {
@@ -1019,14 +1015,22 @@ form button {
         width: 70%;
         height: auto;
     }
+
+    .contact-info {
+        font-size: 15px;
+    }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 390px) {
     .hero-headline {
         font-size: 1.1rem;
     }
 
     .hero-subheadline {
         font-size: 0.9rem;
+    }
+
+    .contact-info {
+        font-size: 14px;
     }
 }
