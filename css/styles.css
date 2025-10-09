@@ -176,6 +176,10 @@ body {
 /* =========== HERO ======== */
 /* ========================= */
 .home-logo {
+    position: relative;
+    /* required for z-index to work */
+    z-index: 2;
+    /* makes logo visible above video and overlay */
     height: 40%;
     /* Logo height relative to container */
     width: 40%;
@@ -235,7 +239,8 @@ body {
     position: absolute;
     inset: 0;
     /* Fill the entire section */
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+    /* darker overlay for better text readability */
     /* Subtle dark overlay */
     z-index: -1;
     /* Between video and content */
@@ -853,7 +858,7 @@ body {
     /* Center vertically */
     justify-content: center;
     /* Center horizontally */
-    gap: rem;
+    gap: 1rem;
     /* Space between items */
     backdrop-filter: blur(15px);
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
@@ -1097,5 +1102,27 @@ body {
         /* Logo height relative to container */
         width: 60%;
         /* Logo width relative to container */
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-headline {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .home-logo {
+        width: 70%;
+        height: auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-headline {
+        font-size: 1.1rem;
+    }
+
+    .hero-subheadline {
+        font-size: 0.9rem;
     }
 }
