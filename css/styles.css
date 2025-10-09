@@ -182,27 +182,40 @@ body {
     /* Logo width relative to container */
 }
 
+/* Hero section */
 #hero {
+    position: relative;
+    /* Needed for absolute positioning */
     min-height: 100vh;
     /* Full viewport height */
     display: flex;
-    /* Flexbox for centering */
+    /* Flexbox centering */
     align-items: center;
-    /* Center content vertically */
+    /* Vertical center */
     justify-content: center;
-    /* Center content horizontally */
+    /* Horizontal center */
     text-align: center;
-    /* Align text center */
-    position: relative;
-    /* Needed for absolute children */
+    /* Center text */
     overflow: hidden;
-    /* Prevent overflow (video/glow) */
+    /* Hide overflow */
 }
 
-/* Video background */
+/* Video background wrapper */
+.video-background {
+    position: absolute;
+    /* Make wrapper fill hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    /* Send behind content */
+}
+
+/* Video itself */
 .hero-video {
     position: absolute;
-    /* Position video behind content */
     top: 50%;
     left: 50%;
     min-width: 100%;
@@ -212,55 +225,46 @@ body {
     transform: translate(-50%, -50%);
     /* Center video */
     object-fit: cover;
-    /* Maintain aspect ratio, cover area */
-    z-index: -2;
-    /* Push video behind everything */
-    filter: brightness(50%);
-    /* Reduce brightness (0% = black, 100% = normal) */
+    /* Cover the whole area */
+    filter: brightness(40%);
+    /* Reduce brightness for readability */
 }
 
-/* Glow overlay effect */
+/* Glow overlay */
 .hero-glow {
     position: absolute;
-    /* Overlay on top of video */
     inset: 0;
-    /* Fill entire hero section */
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-            rgba(19, 130, 186, .15),
-            transparent 40%);
-    transition: background .2s linear;
-    /* Smooth glow effect */
+    /* Fill the entire section */
+    background: rgba(0, 0, 0, 0.2);
+    /* Subtle dark overlay */
     z-index: -1;
     /* Between video and content */
 }
 
-/* Hero text container */
+/* Hero content */
 .hero-content {
     position: relative;
-    /* Keep content above video & glow */
+    /* Keep above video */
     z-index: 1;
+    color: #fff;
+    /* White text */
 }
 
-/* Headline text */
+/* Headline */
 .hero-headline {
     font-size: clamp(2.5rem, 5vw, 4rem);
     /* Responsive font size */
-    color: var(--light);
-    /* Light color */
     margin-bottom: 20px;
-    /* Space below headline */
 }
 
-/* Subheadline text */
+/* Subheadline */
 .hero-subheadline {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     /* Responsive font size */
-    color: var(--text-dark);
-    /* Darker text color */
     max-width: 600px;
-    /* Limit line length */
     margin: 0 auto 30px;
-    /* Center and add spacing */
+    color: #e0e0e0;
+    /* Lighter gray text */
 }
 
 /* 3d btn */
@@ -1078,29 +1082,20 @@ body {
     .slide-caption {
         padding: 20px 12px 12px;
     }
-}
 
-@media (max-width: 360px) {
-    .social-card ul {
-        flex-direction: column;
-        /* Stack icons vertically */
-        gap: 0.8rem;
-        /* Smaller gap between icons */
-        align-items: center;
-        /* Center horizontally */
-        justify-content: center;
-        /* Center vertically */
+    .hero-headline {
+        font-size: clamp(1.5rem, 5vw, 4rem);
+        /* Responsive font size */
+        color: var(--light);
+        /* Light color */
+        margin-bottom: 20px;
+        /* Space below headline */
     }
 
-    .svg {
-        height: 50px;
-        /* Smaller icon height */
-        width: 50px;
-        /* Smaller icon width */
-    }
-
-    .text {
-        font-size: 0.85rem;
-        /* Smaller text size */
+    .home-logo {
+        height: 60%;
+        /* Logo height relative to container */
+        width: 60%;
+        /* Logo width relative to container */
     }
 }
