@@ -215,6 +215,97 @@ body {
     margin: 0 auto 30px;
 }
 
+/* 3d btn */
+/* From Uiverse.io by njesenberger */
+.button {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    border-width: 0;
+    padding: 0 8px 12px;
+    min-width: 10em;
+    box-sizing: border-box;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.button-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    padding: 8px 16px;
+    transform: translateY(0);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, .25);
+    transition-property: transform;
+    transition-duration: .2s;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.button:active .button-top {
+    transform: translateY(6px);
+}
+
+.button-top::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    background-image: radial-gradient(var(--secondary), var(--primary));
+    text-align: center;
+    color: #fff;
+    box-shadow: inset 0 0 0px 1px rgba(255, 255, 255, .2), 0 1px 2px 1px rgba(255, 255, 255, .2);
+    transition-property: border-radius, padding, width, transform;
+    transition-duration: .2s;
+}
+
+.button:active .button-top::after {
+    border-radius: 6px;
+    padding: 0 2px;
+}
+
+.button-bottom {
+    position: absolute;
+    z-index: -1;
+    bottom: 4px;
+    left: 4px;
+    border-radius: 8px / 16px 16px 8px 8px;
+    padding-top: 6px;
+    width: calc(100% - 8px);
+    height: calc(100% - 10px);
+    box-sizing: content-box;
+    background-color: var(--secondary);
+    background-image: radial-gradient(4px 8px at 4px calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(4px 8px at calc(100% - 4px) calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(16px at -4px 0, white, transparent), radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5), inset 0 -1px 3px 3px rgba(0, 0, 0, .4);
+    transition-property: border-radius, padding-top;
+    transition-duration: .2s;
+}
+
+.button:active .button-bottom {
+    border-radius: 10px 10px 8px 8px / 8px;
+    padding-top: 0;
+}
+
+.button-base {
+    position: absolute;
+    z-index: -2;
+    top: 4px;
+    left: 0;
+    border-radius: 12px;
+    width: 100%;
+    height: calc(100% - 4px);
+    background-color: rgba(0, 0, 0, .15);
+    box-shadow: 0 1px 1px 0 rgba(255, 255, 255, .75), inset 0 2px 2px rgba(0, 0, 0, .25);
+}
+
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -260,25 +351,11 @@ body {
     padding: 5px;
 }
 
+/* Card 4 */
 @property --rotate {
     syntax: "<angle>";
     initial-value: 132deg;
     inherits: false;
-}
-
-:root {
-    --card-height: 65vh;
-    --card-width: calc(var(--card-height) / 1.5);
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-sizing: border-box;
 }
 
 .card-n {
@@ -358,6 +435,7 @@ body {
     font-weight: bold;
     margin-top: 2rem;
 }
+
 
 .service-card {
     height: 350px;
@@ -530,6 +608,30 @@ body {
     text-align: center;
 }
 
+.why-item:first-child {
+    background: var(--dark);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform .3s ease;
+    backdrop-filter: blur(15px);
+    box-shadow: inset 0 0 20px var(--primary),
+        inset 0 0 5px rgba(255, 255, 255, 0.274),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    transition: 0.5s;
+}
+
+.why-item:nth-child(2) {
+    background: var(--dark);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform .3s ease;
+    backdrop-filter: blur(15px);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+        inset 0 0 5px rgba(255, 255, 255, 0.274),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    transition: 0.5s;
+}
+
 .why-item {
     background: var(--dark);
     padding: 20px;
@@ -687,6 +789,132 @@ body {
     cursor: pointer;
 }
 
+/* Social Card */
+/* From Uiverse.io by MijailVillegas */
+.social-card {
+    max-width: fit-content;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    /* Make children horizontal */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    gap: rem;
+    /* Space between items */
+    backdrop-filter: blur(15px);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+        inset 0 0 5px rgba(255, 255, 255, 0.274),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    transition: 0.5s;
+    margin: 25px auto;
+
+}
+
+.social-card:hover {
+    animation: ease-out 5s;
+    background: rgba(173, 173, 173, 0.05);
+}
+
+.social-card ul {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal layout */
+    gap: 2rem;
+    /* Space between icons */
+    list-style: none;
+    padding: 5px 5px;
+    margin: 0;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Align vertically */
+}
+
+.social-card ul li {
+    cursor: pointer;
+}
+
+.svg {
+    transition: all 0.3s;
+    /* if you find some problems change w - h : 30px*/
+    padding: 1rem;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    color: var(--primary);
+    fill: currentColor;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+}
+
+.text {
+    opacity: 0;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all 0.3s;
+    color: var(--light);
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    z-index: 9999;
+    box-shadow: -5px 0 1px rgba(153, 153, 153, 0.2),
+        -10px 0 1px rgba(153, 153, 153, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.082);
+}
+
+/*isometric prooyection*/
+.iso-pro {
+    transition: 0.5s;
+}
+
+.iso-pro:hover a>.svg {
+    transform: translate(15px, -15px);
+    border-radius: 100%;
+}
+
+.iso-pro:hover .text {
+    opacity: 1;
+    transform: translate(25px, -2px) skew(-5deg);
+}
+
+.iso-pro:hover .svg {
+    transform: translate(5px, -5px);
+}
+
+.iso-pro span {
+    opacity: 0;
+    position: absolute;
+    color: #1877f2;
+    border-color: #1877f2;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+    border-radius: 50%;
+    transition: all 0.3s;
+    height: 60px;
+    width: 60px;
+}
+
+.iso-pro:hover span {
+    opacity: 1;
+}
+
+.iso-pro:hover span:nth-child(1) {
+    opacity: 0.2;
+}
+
+.iso-pro:hover span:nth-child(2) {
+    opacity: 0.4;
+    transform: translate(5px, -5px);
+}
+
+.iso-pro:hover span:nth-child(3) {
+    opacity: 0.6;
+    transform: translate(10px, -10px);
+}
+
+
 /* ========================= */
 /* ========= FOOTER ======== */
 /* ========================= */
@@ -801,5 +1029,30 @@ body {
 
     .slide-caption {
         padding: 20px 12px 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .social-card ul {
+        flex-direction: column;
+        /* Stack icons vertically */
+        gap: 0.8rem;
+        /* Smaller gap between icons */
+        align-items: center;
+        /* Center horizontally */
+        justify-content: center;
+        /* Center vertically */
+    }
+
+    .svg {
+        height: 50px;
+        /* Smaller icon height */
+        width: 50px;
+        /* Smaller icon width */
+    }
+
+    .text {
+        font-size: 0.85rem;
+        /* Smaller text size */
     }
 }
