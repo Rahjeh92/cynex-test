@@ -1,398 +1,1106 @@
-<!DOCTYPE html>
-<html lang="en">
+/* ========================= */
+/* ======== VARIABLES ====== */
+/* ========================= */
+:root {
+    --primary: #1482BA;
+    --secondary: #084C7A;
+    --accent: #6A6A6A;
+    --bg: #0F0F0F;
+    --dark: #1B1B1B;
+    --light: #FFFFFF;
+    --text-light: #E0E0E0;
+    --text-dark: #B0B0B0;
+    --header-height: 70px;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    /* Projects slider aspect ratio (desktop/tablet) */
+    --project-aspect: 16/9;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYNEX</title>
-    <meta name="description"
-        content="Reliable Security, Networking, and Smart Automation for Businesses and Homes in Kuwait.">
+/* ========================= */
+/* ========= BASE ========== */
+/* ========================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <!-- Favicon -->
-    <link rel="icon" href="../assets/icons/icon-no-bg.png" type="image/x-icon">
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="/index.css">
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: var(--bg);
+    color: var(--text-light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:wght@400;600&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+/* ========================= */
+/* ========= LAYOUT ======== */
+/* ========================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-</head>
+.section {
+    padding: 80px 40px;
+    /* top/bottom 80px - left/right 40px */
+}
 
-<body>
+.section-title {
+    font-size: 2.5rem;
+    color: var(--light);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
 
-    <!-- ======================= -->
-    <!-- ========= HEADER ======== -->
-    <!-- ======================= -->
-    <header id="header">
-        <div class="container container--fluid">
-            <!-- logo + nav -->
-            <a href="#" class="logo">
-                <img src="assets/icons/icon-no-bg.png" alt="CYNEX Logo">
-            </a>
-            <nav id="nav-menu">
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <button id="hamburger" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-        </div>
-    </header>
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+}
 
-    <main>
-        <!-- ======================= -->
-        <!-- ========= HERO ========== -->
-        <!-- ======================= -->
-        <section id="hero">
-            <div class="video-background">
-                <!-- Video Background -->
-                <video autoplay muted loop playsinline class="hero-video">
-                    <source src="/assets/video/hero-bg.mp4" type="video/mp4">
-                </video>
-                <div class="hero-glow"></div>
-                <div class="container">
-                    <img class="home-logo" src="assets/images/logo.png" alt="CYNEX Logo">
-                    <div class="hero-content reveal">
-                        <h1 class="hero-headline">Connected. Protected. Automated.</h1>
-                        <p class="hero-subheadline">Reliable Security, Networking, and Smart Automation for Businesses
-                            and
-                            Homes.</p>
-                        <a href="#contact" class="btn btn-primary">Get Started</a>
-                    </div>
-                </div>
-        </section>
+/* ========================= */
+/* ========= HEADER ======== */
+/* ========================= */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    background-color: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(10px);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
 
-        <!-- ======================= -->
-        <!-- ======= ABOUT US ======== -->
-        <!-- ======================= -->
-        <section id="about" class="section">
-            <div class="container reveal">
-                <h2 class="section-title">Your Trusted Technology Partner</h2>
-                <div class="about-content">
-                    <p>At CYNEX, we specialize in delivering state-of-the-art network and security solutions tailored to
-                        the unique needs of our clients. Based in Kuwait, our team of certified professionals brings
-                        years of experience in designing, implementing, and managing robust IT infrastructures. We are
-                        committed to providing reliable, scalable, and secure systems that empower businesses and
-                        enhance modern living.</p>
-                    <p>Our philosophy is built on a foundation of trust, innovation, and customer-centricity. We partner
-                        with leading global technology providers to ensure our clients receive the best-in-class
-                        products and services. From initial consultation to ongoing support, CYNEX is dedicated to
-                        ensuring your technology works for you, seamlessly and securely.</p>
-                </div>
-            </div>
-        </section>
+#header.scrolled {
+    background-color: rgba(27, 27, 27, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
 
-        <!-- ======================= -->
-        <!-- ======= SERVICES ====== -->
-        <!-- ======================= -->
-        <section id="services" class="section">
-            <div class="container">
-                <h2 class="section-title reveal">Our Services</h2>
-                <div class="services-grid">
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
-                    <!-- Service Card 1 - Security Systems -->
-                    <div class="service-card security tilt reveal">
-                        <div class="card-inner">
-                            <!-- Front side of the card -->
-                            <div class="card-front glow-text-animated">
-                                <img src="assets/images/security-systems.png" alt="security">
-                                <h3 class="svc-title">Security Systems</h3>
-                            </div>
-                            <!-- Back side of the card -->
-                            <div class="card-back">
-                                <ul class="desc">
-                                    <li>CCTV</li>
-                                    <li>Access control</li>
-                                    <li>Intrusion alarms</li>
-                                    <li>24/7 monitoring</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+.logo img {
+    display: block;
+    height: 60px;
+    width: auto;
+}
 
-                    <!-- Service Card 2 - Networking & Cabling -->
-                    <div class="service-card networking tilt reveal">
-                        <div class="card-inner">
-                            <!-- Front side of the card -->
-                            <div class="card-front glow-text-strong">
-                                <img src="assets/images/networking.png" alt="network">
-                                <h3 class="svc-title">Networking &amp; Cabling</h3>
-                            </div>
-                            <!-- Back side of the card -->
-                            <div class="card-back">
-                                <p class="desc">Structured cabling, LAN/WAN, Wi-Fi optimization, and data center wiring
-                                    for peak performance.</p>
-                            </div>
-                        </div>
-                    </div>
+#nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
 
-                    <!-- Service Card 3 - Smart Home & Automation -->
-                    <div class="service-card smarthome tilt reveal">
-                        <div class="card-inner">
-                            <!-- Front side of the card -->
-                            <div class="card-front glow-text">
-                                <img src="assets/images/networking.png" alt="network">
-                                <h3 class="svc-title">Smart Home &amp; Automation</h3>
-                            </div>
-                            <!-- Back side of the card -->
-                            <div class="card-back">
-                                <p class="desc">Lighting, climate control, and voice/app integration for a truly
-                                    connected experience.</p>
-                            </div>
-                        </div>
-                    </div>
+#nav-menu a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    position: relative;
+    transition: color var(--transition-speed);
+}
 
-                    <!-- Service Card 4 - IT Infrastructure -->
-                    <div class="service-card itinfra tilt reveal">
-                        <div class="card-inner">
-                            <!-- Front side of the card -->
-                            <div class="card-front card-n">
-                                <h3 class="svc-title">IT Infrastructure</h3>
-                            </div>
-                            <!-- Back side of the card -->
-                            <div class="card-back">
-                                <p class="desc">Expert deployment of routers, switches, firewalls, and complete SME
-                                    solutions.</p>
-                            </div>
-                        </div>
-                    </div>
+#nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width var(--transition-speed);
+}
 
-                    <!-- Service Card 5 - IP Telephony & Communication -->
-                    <div class="service-card iptelephony tilt reveal">
-                        <div class="card-inner">
-                            <!-- Front side of the card -->
-                            <div class="card-front one-div">
-                                <h3 class="svc-title">IP Telephony &amp; Communication</h3>
-                            </div>
-                            <!-- Back side of the card -->
-                            <div class="card-back">
-                                <p class="desc">Advanced IP telephony, VoIP, and unified communications to connect your
-                                    teams.</p>
-                            </div>
-                        </div>
-                    </div>
+#nav-menu a:hover {
+    color: var(--primary);
+}
 
-                </div>
-            </div>
-        </section>
+#nav-menu a:hover::after {
+    width: 100%;
+}
 
-        <!-- ======================= -->
-        <!-- ===== WHY CHOOSE US ===== -->
-        <!-- ======================= -->
-        <section id="why" class="section">
-            <div class="container reveal">
-                <h2 class="section-title">Why Choose CYNEX</h2>
-                <div class="why-grid">
-                    <div class="why-item ">
-                        <svg class="why-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M12 11.55C9.64 9.35 6.48 8 3 8v11c3.48 0 6.64 1.35 9 3.55 2.36-2.19 5.52-3.55 9-3.55V8c-3.48 0-6.64 1.35-9 3.55zM12 8c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z" />
-                        </svg>
-                        <h3>Kuwait-Based Experts</h3>
-                        <p>Local knowledge with a deep understanding of regional business needs and challenges.</p>
-                    </div>
-                    <div class="why-item">
-                        <svg class="why-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                        </svg>
-                        <h3>Global Technology Partnerships</h3>
-                        <p>Access to the latest and most reliable technologies from industry-leading brands.</p>
-                    </div>
-                    <div class="why-item">
-                        <svg class="why-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" />
-                        </svg>
-                        <h3>End-to-End Delivery</h3>
-                        <p>A seamless process from design and installation to long-term maintenance and support.</p>
-                    </div>
-                    <div class="why-item">
-                        <svg class="why-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
-                        </svg>
-                        <h3>Tailored, Efficient, Scalable</h3>
-                        <p>Customized solutions that fit your budget and grow with your business or home.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+#hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
 
-        <!-- ======================= -->
-        <!-- ======= PROJECTS ======== -->
-        <!-- ======================= -->
-        <section id="projects" class="section">
-            <div class="container reveal">
-                <h2 class="section-title">Our Projects</h2>
-                <div class="slider-container">
-                    <div class="slider">
-                        <div class="slide">
-                            <img src="assets/images/Corporate Office Network.png"
-                                alt="Corporate Office Network Overhaul" loading="lazy" width="800" height="500">
-                            <div class="slide-caption">
-                                <h3>Corporate Office Network Overhaul</h3>
-                                <p>Complete structured cabling and Wi-Fi solution for a 200-employee firm.</p>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="assets/images/Luxury Villa Smart Home Integration.png"
-                                alt="Luxury Villa Smart Home Integration" loading="lazy" width="800" height="500">
-                            <div class="slide-caption">
-                                <h3>Luxury Villa Smart Home Integration</h3>
-                                <p>Integrated lighting, security, and climate control system with remote access.</p>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="assets/images/Retail Chain CCTV Deployment.png" alt="Retail Chain CCTV Deployment"
-                                loading="lazy" width="800" height="500">
-                            <div class="slide-caption">
-                                <h3>Retail Chain CCTV Deployment</h3>
-                                <p>Multi-location surveillance system with centralized monitoring and cloud storage.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="slider-btn prev" aria-label="Previous project">&lt;</button>
-                    <button class="slider-btn next" aria-label="Next project">&gt;</button>
-                </div>
-            </div>
-        </section>
+#hamburger .line {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--light);
+    margin: 5px 0;
+    transition: transform .4s, opacity .4s;
+}
 
-        <!-- ======================= -->
-        <!-- ===== TESTIMONIALS ====== -->
-        <!-- ======================= -->
-        <!-- <section id="testimonials" class="section">
-            <div class="container">
-                <h2 class="section-title reveal">What Our Clients Say</h2>
-                <div class="testimonials-container">
-                    <div class="testimonial-card reveal">
-                        <p>"CYNEX transformed our office's connectivity. The new network is incredibly fast and
-                            reliable. Their team was professional and efficient from start to finish."</p>
-                        <footer>- Ali, IT Manager</footer>
-                    </div>
-                    <div class="testimonial-card reveal">
-                        <p>"The smart home system installed by CYNEX is a game-changer. I can control everything from my
-                            phone. Exceptional service and technical expertise."</p>
-                        <footer>- Fatima, Homeowner</footer>
-                    </div>
-                    <div class="testimonial-card reveal">
-                        <p>"Our new security system gives us complete peace of mind. The installation was clean, and the
-                            team provided excellent training. Highly recommended."</p>
-                        <footer>- Ahmed, Business Owner</footer>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+#hamburger.open .line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
 
-        <!-- ======================= -->
-        <!-- ======== CONTACT ======== -->
-        <!-- ======================= -->
-        <section id="contact" class="section">
-            <div class="container reveal">
-                <h2 class="section-title">Get in Touch</h2>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Contact Details</h3>
-                        <p>📍 Al Saqran Tower, Hawally, Floor 1, Office No. 3</p>
-                        <p>📞 +965 50503025</p>
-                        <p>🌐 www.cynex.pro</p>
-                        <p>📧 info@cynex.pro</p>
-                    </div>
-                    <form class="contact-form">
-                        <h3>Send Us a Message</h3>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                        <button type="button" class="button">
-                            <div class="button-top">Submit</div>
-                            <div class="button-bottom"></div>
-                            <div class="button-base"></div>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="social-card">
-                <ul>
-                    <li class="iso-pro">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <a href="">
-                            <svg viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg" class="svg">
-                                <path
-                                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
-                                </path>
-                            </svg></a>
-                        <div class="text">Facebook</div>
-                    </li>
-                    <li class="iso-pro">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <a href="">
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path
-                                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
-                                </path>
-                            </svg>
-                        </a>
-                        <div class="text">Twitter</div>
-                    </li>
-                    <li class="iso-pro">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <a href="">
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
-                                </path>
-                            </svg>
-                        </a>
-                        <div class="text">Instagram</div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- From Uiverse.io by MijailVillegas -->
-    </main>
+#hamburger.open .line:nth-child(2) {
+    opacity: 0;
+}
 
-    <!-- ======================= -->
-    <!-- ========= FOOTER ======== -->
-    <!-- ======================= -->
-    <footer id="footer">
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> CYNEX. All Rights Reserved.</p>
-        </div>
-    </footer>
+#hamburger.open .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
 
-    <!-- JavaScript File -->
-    <script src="js/script.js"></script>
+/* ========================= */
+/* =========== HERO ======== */
+/* ========================= */
+.home-logo {
+    height: 40%;
+    /* Logo height relative to container */
+    width: 40%;
+    /* Logo width relative to container */
+}
 
-    <script type="module" src="/index.tsx"></script>
-</body>
+#hero {
+    min-height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    /* Flexbox for centering */
+    align-items: center;
+    /* Center content vertically */
+    justify-content: center;
+    /* Center content horizontally */
+    text-align: center;
+    /* Align text center */
+    position: relative;
+    /* Needed for absolute children */
+    overflow: hidden;
+    /* Prevent overflow (video/glow) */
+}
 
-</html>
+/* Video background */
+.hero-video {
+    position: absolute;
+    /* Position video behind content */
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    /* Ensure video covers width */
+    min-height: 100%;
+    /* Ensure video covers height */
+    transform: translate(-50%, -50%);
+    /* Center video */
+    object-fit: cover;
+    /* Maintain aspect ratio, cover area */
+    z-index: -2;
+    /* Push video behind everything */
+    filter: brightness(50%);
+    /* Reduce brightness (0% = black, 100% = normal) */
+}
+
+/* Glow overlay effect */
+.hero-glow {
+    position: absolute;
+    /* Overlay on top of video */
+    inset: 0;
+    /* Fill entire hero section */
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(19, 130, 186, .15),
+            transparent 40%);
+    transition: background .2s linear;
+    /* Smooth glow effect */
+    z-index: -1;
+    /* Between video and content */
+}
+
+/* Hero text container */
+.hero-content {
+    position: relative;
+    /* Keep content above video & glow */
+    z-index: 1;
+}
+
+/* Headline text */
+.hero-headline {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    /* Responsive font size */
+    color: var(--light);
+    /* Light color */
+    margin-bottom: 20px;
+    /* Space below headline */
+}
+
+/* Subheadline text */
+.hero-subheadline {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    /* Responsive font size */
+    color: var(--text-dark);
+    /* Darker text color */
+    max-width: 600px;
+    /* Limit line length */
+    margin: 0 auto 30px;
+    /* Center and add spacing */
+}
+
+/* 3d btn */
+/* From Uiverse.io by njesenberger */
+.button {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    border-width: 0;
+    padding: 0 8px 12px;
+    min-width: 10em;
+    box-sizing: border-box;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.button-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    padding: 8px 16px;
+    transform: translateY(0);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, .25);
+    transition-property: transform;
+    transition-duration: .2s;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.button:active .button-top {
+    transform: translateY(6px);
+}
+
+.button-top::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    background-image: radial-gradient(var(--secondary), var(--primary));
+    text-align: center;
+    color: #fff;
+    box-shadow: inset 0 0 0px 1px rgba(255, 255, 255, .2), 0 1px 2px 1px rgba(255, 255, 255, .2);
+    transition-property: border-radius, padding, width, transform;
+    transition-duration: .2s;
+}
+
+.button:active .button-top::after {
+    border-radius: 6px;
+    padding: 0 2px;
+}
+
+.button-bottom {
+    position: absolute;
+    z-index: -1;
+    bottom: 4px;
+    left: 4px;
+    border-radius: 8px / 16px 16px 8px 8px;
+    padding-top: 6px;
+    width: calc(100% - 8px);
+    height: calc(100% - 10px);
+    box-sizing: content-box;
+    background-color: var(--secondary);
+    background-image: radial-gradient(4px 8px at 4px calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(4px 8px at calc(100% - 4px) calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(16px at -4px 0, white, transparent), radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5), inset 0 -1px 3px 3px rgba(0, 0, 0, .4);
+    transition-property: border-radius, padding-top;
+    transition-duration: .2s;
+}
+
+.button:active .button-bottom {
+    border-radius: 10px 10px 8px 8px / 8px;
+    padding-top: 0;
+}
+
+.button-base {
+    position: absolute;
+    z-index: -2;
+    top: 4px;
+    left: 0;
+    border-radius: 12px;
+    width: 100%;
+    height: calc(100% - 4px);
+    background-color: rgba(0, 0, 0, .15);
+    box-shadow: 0 1px 1px 0 rgba(255, 255, 255, .75), inset 0 2px 2px rgba(0, 0, 0, .25);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--light);
+    box-shadow: 0 4px 15px rgba(19, 130, 186, .3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(19, 130, 186, .5), 0 0 15px var(--primary);
+}
+
+/* ========================= */
+/* ===== SECTION-SPECIFIC == */
+/* ========================= */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ========================= */
+/* ===== SERVICES == */
+/* ========================= */
+
+/* --- Services & Flip Cards --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    padding: 5px;
+}
+
+/* Card 4 */
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+.card-n {
+    background: var(--primary);
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: 1.5em;
+    color: rgb(88 199 250 / 0%);
+    cursor: pointer;
+    font-family: cursive;
+}
+
+.card-n:hover {
+    color: var(--primary);
+    transition: color 1s;
+}
+
+.card-n:hover:before,
+.card-n:hover:after {
+    animation: none;
+    opacity: 0;
+}
+
+
+.card-n::before {
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.card-n::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, var(--primary));
+    opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+
+    100% {
+        --rotate: 360deg;
+    }
+}
+
+.card-n a {
+    color: #212534;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+
+.service-card {
+    height: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+
+}
+
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.service-card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
+    border-radius: 12px;
+    background: #111;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--stroke);
+    transition: all 0.3s ease;
+
+}
+
+.service-card:first-child img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+}
+
+.card-front img {
+    width: 80px;
+    /* Balanced size */
+    height: 80px;
+    margin-bottom: 25px;
+}
+
+.service-card:nth-child(3) img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+}
+
+.glow-text-strong {
+    color: var(--light);
+    text-shadow:
+        0 0 10px var(--light),
+        0 0 20px var(--light),
+        0 0 30px var(--light);
+}
+
+.glow-text {
+    color: var(--light);
+    /* Yellow text */
+    text-shadow: 0 0 15px var(--light);
+}
+
+@keyframes glowPulse {
+    0% {
+        text-shadow: 0 0 5px var(--light), 0 0 10px var(--light);
+    }
+
+    50% {
+        text-shadow: 0 0 20px var(--light), 0 0 40px var(--light);
+    }
+
+    100% {
+        text-shadow: 0 0 5px var(--light), 0 0 10px var(--light);
+    }
+}
+
+.glow-text-animated {
+    color: var(--light);
+    animation: glowPulse 2s infinite alternate;
+}
+
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #111;
+    color: #fff;
+    /* make text white by default */
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--stroke);
+    transition: all 0.3s ease;
+}
+
+/* Title font style */
+.card-front h3 {
+    padding: 8px 12px;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 1.2rem;
+}
+
+/* Description font style */
+.card-back p {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+.card-back li {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.card-front {
+    background: #111;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: var(--dark);
+}
+
+/* Hover effect:*/
+.service-card:hover .card-front {
+    border-color: var(--brand);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.service-card:hover .card-back {
+    border-color: var(--brand);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+/* --- Why Choose --- */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.why-item:first-child {
+    background: var(--dark);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform .3s ease;
+    backdrop-filter: blur(15px);
+    box-shadow: inset 0 0 20px var(--primary),
+        inset 0 0 5px rgba(255, 255, 255, 0.274),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    transition: 0.5s;
+}
+
+.why-item:nth-child(2) {
+    background: var(--dark);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform .3s ease;
+    backdrop-filter: blur(15px);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+        inset 0 0 5px rgba(255, 255, 255, 0.274),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    transition: 0.5s;
+}
+
+.why-item {
+    background: var(--dark);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    transition: transform .3s ease;
+}
+
+.why-item:hover {
+    transform: translateY(-5px);
+}
+
+.why-item .why-icon {
+    width: 50px;
+    height: 50px;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.why-item h3 {
+    color: var(--light);
+    margin-bottom: 10px;
+}
+
+/* --- Projects Slider --- */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.slider {
+    display: flex;
+    transition: transform .5s ease-in-out;
+}
+
+.slide {
+    position: relative;
+    min-width: 100%;
+    aspect-ratio: var(--project-aspect);
+    overflow: hidden;
+}
+
+.slide img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, .8), transparent);
+    color: var(--light);
+    padding: 40px 20px 20px;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, .5);
+    color: var(--light);
+    border: none;
+    font-size: 2rem;
+    padding: 5px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed);
+}
+
+.slider-btn:hover {
+    background-color: var(--primary);
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+/* --- Testimonials --- */
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--dark);
+    padding: 25px;
+    border-left: 4px solid var(--secondary);
+    border-radius: var(--border-radius);
+}
+
+.testimonial-card footer {
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--accent);
+}
+
+/* --- Contact --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--dark);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    color: var(--text-light);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.contact-form .btn {
+    border: none;
+    cursor: pointer;
+}
+
+/* Social Card */
+/* From Uiverse.io by MijailVillegas */
+.social-card {
+    max-width: fit-content;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    /* Make children horizontal */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    gap: rem;
+    /* Space between items */
+    backdrop-filter: blur(15px);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+        inset 0 0 5px rgba(255, 255, 255, 0.274),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    transition: 0.5s;
+    margin: 25px auto;
+
+}
+
+.social-card:hover {
+    animation: ease-out 5s;
+    background: rgba(173, 173, 173, 0.05);
+}
+
+.social-card ul {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal layout */
+    gap: 2rem;
+    /* Space between icons */
+    list-style: none;
+    padding: 5px 5px;
+    margin: 0;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Align vertically */
+}
+
+.social-card ul li {
+    cursor: pointer;
+}
+
+.svg {
+    transition: all 0.3s;
+    /* if you find some problems change w - h : 30px*/
+    padding: 1rem;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    color: var(--primary);
+    fill: currentColor;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+}
+
+.text {
+    opacity: 0;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all 0.3s;
+    color: var(--light);
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    z-index: 9999;
+    box-shadow: -5px 0 1px rgba(153, 153, 153, 0.2),
+        -10px 0 1px rgba(153, 153, 153, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.082);
+}
+
+/*isometric prooyection*/
+.iso-pro {
+    transition: 0.5s;
+}
+
+.iso-pro:hover a>.svg {
+    transform: translate(15px, -15px);
+    border-radius: 100%;
+}
+
+.iso-pro:hover .text {
+    opacity: 1;
+    transform: translate(25px, -2px) skew(-5deg);
+}
+
+.iso-pro:hover .svg {
+    transform: translate(5px, -5px);
+}
+
+.iso-pro span {
+    opacity: 0;
+    position: absolute;
+    color: #1877f2;
+    border-color: #1877f2;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+    border-radius: 50%;
+    transition: all 0.3s;
+    height: 60px;
+    width: 60px;
+}
+
+.iso-pro:hover span {
+    opacity: 1;
+}
+
+.iso-pro:hover span:nth-child(1) {
+    opacity: 0.2;
+}
+
+.iso-pro:hover span:nth-child(2) {
+    opacity: 0.4;
+    transform: translate(5px, -5px);
+}
+
+.iso-pro:hover span:nth-child(3) {
+    opacity: 0.6;
+    transform: translate(10px, -10px);
+}
+
+
+/* ========================= */
+/* ========= FOOTER ======== */
+/* ========================= */
+#footer {
+    background-color: var(--dark);
+    padding: 20px 0;
+    text-align: center;
+    color: var(--accent);
+}
+
+/* ========================= */
+/* ======= UTILITIES ======= */
+/* ========================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s, transform .8s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================= */
+/* ======= RESPONSIVE ====== */
+/* ========================= */
+@media (max-width: 1180px) {
+    .section {
+        padding: 72px 0;
+        /* still consistent, just slightly smaller */
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 4.6vw, 2.3rem);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 26px;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: clamp(1.8rem, 6vw, 2rem);
+    }
+
+    #nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--dark);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, .5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: right .4s ease-in-out;
+    }
+
+    #nav-menu.open {
+        right: 0;
+    }
+
+    #nav-menu ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    #nav-menu a {
+        font-size: 1.2rem;
+    }
+
+    #hamburger {
+        display: block;
+    }
+
+    .services-grid {
+        gap: 22px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --project-aspect: 4/3;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slide-caption {
+        padding: 20px 12px 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .social-card ul {
+        flex-direction: column;
+        /* Stack icons vertically */
+        gap: 0.8rem;
+        /* Smaller gap between icons */
+        align-items: center;
+        /* Center horizontally */
+        justify-content: center;
+        /* Center vertically */
+    }
+
+    .svg {
+        height: 50px;
+        /* Smaller icon height */
+        width: 50px;
+        /* Smaller icon width */
+    }
+
+    .text {
+        font-size: 0.85rem;
+        /* Smaller text size */
+    }
+}
