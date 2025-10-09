@@ -10,7 +10,7 @@
     --light: #FFFFFF;
     --text-light: #E0E0E0;
     --text-dark: #B0B0B0;
-    --header-height: 70px;
+    --header-height: 60px;
     --border-radius: 8px;
     --transition-speed: 0.3s;
     /* Projects slider aspect ratio (desktop/tablet) */
@@ -106,7 +106,7 @@ body {
 
 .logo img {
     display: block;
-    height: 60px;
+    height: 40px;
     width: auto;
 }
 
@@ -806,6 +806,10 @@ body {
     grid-template-columns: 1fr 1.5fr;
     gap: 50px;
     align-items: flex-start;
+}
+
+.contact-info {
+    justify-items: center;
 }
 
 .contact-info p {
